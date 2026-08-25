@@ -238,7 +238,7 @@ body {
 /* ── Watermark ────────────────────────────────────────────── */
 @media (min-width: 768px) {
   body {
-    background-image: url('/bgImage_wm.png');
+    background-image: url('/java-portfolio/bgImage_wm.png');
     background-repeat: no-repeat;
     background-position: right 5% center;
     background-size: 480px auto;
