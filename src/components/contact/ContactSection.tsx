@@ -132,8 +132,8 @@ export function ContactSection() {
         <div className="panel space-y-3 p-6 text-sm">
           <p className="flex justify-between border-b border-line pb-3">
             <span className="font-mono text-[9px] tracking-[0.22em] text-muted">EMAIL</span>
-            <a href="mailto:hello@upendrarai.dev" data-cursor="link" className="transition-colors hover:text-accent">
-              hello@upendrarai.dev
+            <a href="mailto:upendrarai02@gmail.com" data-cursor="link" className="transition-colors hover:text-accent">
+              upendrarai02@gmail.com
             </a>
           </p>
           <p className="flex justify-between border-b border-line pb-3">
