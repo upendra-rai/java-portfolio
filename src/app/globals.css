@@ -404,3 +404,26 @@ body {
     display: none !important;
   }
 }
+
+
+/* ── Circuit motif — running circles ───────────────────────── */
+@keyframes circuit-dash {
+  to { stroke-dashoffset: -1; }
+}
+
+.circuit-run {
+  animation: circuit-dash 1.6s linear infinite;
+}
+
+.circuit-run-rev {
+  animation: circuit-dash 2.6s linear infinite reverse;
+}
+
+@keyframes circuit-node-pulse {
+  0%, 100% { opacity: 0.35; }
+  50% { opacity: 1; }
+}
+
+.circuit-node {
+  animation: circuit-node-pulse 3.2s ease-in-out infinite;
+}
