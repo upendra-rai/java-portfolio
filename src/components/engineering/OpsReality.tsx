@@ -4,7 +4,7 @@ import { PERFORMANCE_CONCEPTS } from '@/data/architecture'
 
 function Row({ label, text }: { label: string; text: string }) {
   return (
-    <div className="grid grid-cols-[86px_1fr] gap-3 py-2.5">
+    <div className="grid grid-cols-1 sm:grid-cols-[86px_1fr] gap-3 py-2.5">
       <span className="pt-px font-mono text-[9px] leading-4 tracking-[0.18em] text-muted">{label}</span>
       <p className="text-[13px] leading-relaxed text-fg/85">{text}</p>
     </div>

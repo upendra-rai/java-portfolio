@@ -13,14 +13,14 @@ export function ArchitectureDiagram() {
   } | null>(null)
 
   return (
-    <div className="grid gap-8 lg:grid-cols-[1fr_300px]">
-      <div className="panel relative overflow-hidden p-5 sm:p-8">
+    <div className="grid gap-6 sm:grid-cols-1 lg:grid-cols-[1fr_280px]">
+      <div className="panel relative overflow-hidden p-4 sm:p-6">
         <div aria-hidden className="absolute inset-0 grid-bg opacity-40" />
         <div className="relative space-y-0">
           {ARCHITECTURE_LAYERS.map((layer, li) => (
             <div key={layer.id}>
-              <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
-                <p className="w-40 shrink-0 font-mono text-[10px] tracking-[0.22em] text-muted">
+              <div className="flex flex-col gap-2 sm:flex-row sm:items-center">
+                <p className="shrink-0 font-mono text-[9px] tracking-[0.22em] text-muted">
                   {layer.name}
                 </p>
                 <div className="flex flex-wrap gap-2">
@@ -51,7 +51,7 @@ export function ArchitectureDiagram() {
                 </div>
               </div>
               {li < ARCHITECTURE_LAYERS.length - 1 && (
-                <div className="ml-4 flex h-10 items-center gap-6 pl-40" aria-hidden>
+                <div className="ml-2 flex h-10 items-center gap-2 pl-2" aria-hidden>
                   {[0, 1, 2].map((i) => (
                     <span key={i} className="relative h-full w-px overflow-visible">
                       <span className="absolute inset-x-0 top-0 h-full w-px bg-line" />

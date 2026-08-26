@@ -37,7 +37,7 @@ function CircuitMotif() {
 
 export function AboutContent() {
   return (
-    <div className="grid items-center gap-12 lg:grid-cols-[1fr_360px]">
+    <div className="grid items-start gap-12 md:grid-cols-1 lg:grid-cols-[1fr_360px]">
       <div>
         {ABOUT_PARAGRAPHS.map((paragraph, i) => (
           <Reveal key={i} delay={i * 0.07}>
@@ -68,9 +68,9 @@ export function AboutContent() {
         </Reveal>
       </div>
 
-      <Reveal delay={0.1} className="mx-auto hidden aspect-square w-full max-w-[340px] lg:block">
+      <div className="lg:block hidden">
         <CircuitMotif />
-      </Reveal>
+      </div>
     </div>
   )
 }
