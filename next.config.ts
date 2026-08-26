@@ -1,10 +1,16 @@
 import type { NextConfig } from 'next'
 
+const BASE_PATH = '/java-portfolio'
+
 const nextConfig: NextConfig = {
   reactStrictMode: true,
-  basePath: '/java-portfolio',
-  trailingSlash: false,
-  output: 'standalone',
+  output: 'export',
+  trailingSlash: true,
+  basePath: BASE_PATH,
+  env: {
+    NEXT_PUBLIC_BASE_PATH: BASE_PATH,
+  },
+  images: { unoptimized: true },
 }
 
 export default nextConfig

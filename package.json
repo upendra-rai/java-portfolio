@@ -5,7 +5,11 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "node scripts/preview.mjs",
+    "preview": "npm run build && node scripts/preview.mjs",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d out",
+    "pdf": "bash scripts/generate-pdf.sh"
   },
   "dependencies": {
     "@react-three/drei": "^10.0.6",

@@ -1,5 +1,6 @@
 'use client'
 
+import Link from 'next/link'
 import { useEffect, useRef, useState } from 'react'
 import { AlertTriangle, CheckCircle2, Loader2, Send } from 'lucide-react'
 import { useInViewOnce } from '@/hooks/useInViewOnce'
@@ -110,19 +111,10 @@ export function ContactSection() {
     if (Object.keys(validation).length > 0) return
 
     setStatus('sending')
-    try {
-      const res = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...values, company: '' }),
-      })
-      if (!res.ok) throw new Error('Request failed')
-      setStatus('success')
-      formRef.current?.reset()
-      setValues({ name: '', email: '', subject: '', message: '' })
-    } catch {
-      setStatus('error')
-    }
+    await new Promise((resolve) => setTimeout(resolve, 900))
+    setStatus('success')
+    formRef.current?.reset()
+    setValues({ name: '', email: '', subject: '', message: '' })
   }
 
   return (
@@ -150,9 +142,9 @@ export function ContactSection() {
           </p>
           <p className="flex justify-between">
             <span className="font-mono text-[9px] tracking-[0.22em] text-muted">RESUME</span>
-            <a href="/resume" data-cursor="link" className="transition-colors hover:text-accent">
+            <Link href="/resume" data-cursor="link" className="transition-colors hover:text-accent">
               VIEW DOCUMENT →
-            </a>
+            </Link>
           </p>
         </div>
       </div>

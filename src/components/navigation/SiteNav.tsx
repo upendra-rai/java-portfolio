@@ -1,6 +1,8 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { AnimatePresence, motion } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
 import { NAV_LINKS, SITE } from '@/lib/constants'
@@ -10,6 +12,9 @@ import { cn } from '@/lib/utils'
 
 export function SiteNav() {
   const [open, setOpen] = useState(false)
+  const pathname = usePathname()
+  const isHome = pathname === '/'
+  const resolve = (href: string) => (isHome ? href : `/${href}`)
   const [scrolled, setScrolled] = useState(false)
   const progress = useScrollProgress()
   const active = useActiveSection(NAV_LINKS.map((l) => l.href.slice(1)))
@@ -48,7 +53,7 @@ export function SiteNav() {
               'mx-3 max-w-[calc(100%-1.5rem)] rounded-lg border border-line bg-bg/80 px-4 py-2 backdrop-blur-md md:mx-6 md:max-w-[calc(100%-3rem)]',
           )}
         >
-          <a href="#home" data-cursor="link" className="group flex items-center gap-3">
+          <Link href="/" data-cursor="link" className="group flex items-center gap-3">
             <span className="flex h-8 w-8 items-center justify-center rounded-md border border-line-strong">
               <span className="h-2 w-2 rounded-full bg-accent transition-transform duration-300 group-hover:scale-125" />
             </span>
@@ -58,13 +63,13 @@ export function SiteNav() {
                 JAVA SOFTWARE ENGINEER
               </span>
             </span>
-          </a>
+          </Link>
 
           <nav aria-label="Primary" className="hidden items-center gap-7 lg:flex">
             {NAV_LINKS.map((link) => (
-              <a
+              <Link
                 key={link.href}
-                href={link.href}
+                href={resolve(link.href)}
                 data-cursor="link"
                 className={cn(
                   'font-mono text-[10px] tracking-[0.2em] transition-colors duration-300 hover:text-fg',
@@ -72,7 +77,7 @@ export function SiteNav() {
                 )}
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
           </nav>
 
@@ -125,10 +130,8 @@ export function SiteNav() {
             </div>
             <nav aria-label="Mobile" className="flex flex-1 flex-col items-center justify-center gap-7">
               {NAV_LINKS.map((link, i) => (
-                <motion.a
+                <motion.div
                   key={link.href}
-                  href={link.href}
-                  onClick={() => setOpen(false)}
                   initial={{ opacity: 0, y: 18 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{
@@ -136,13 +139,19 @@ export function SiteNav() {
                     delay: 0.08 + i * 0.06,
                     ease: [0.16, 1, 0.3, 1],
                   }}
-                  className={cn(
-                    'font-mono text-xl tracking-[0.28em]',
-                    active === link.href.slice(1) ? 'text-accent' : 'text-fg',
-                  )}
                 >
-                  {link.label}
-                </motion.a>
+                  <Link
+                    href={resolve(link.href)}
+                    onClick={() => setOpen(false)}
+                    data-cursor="link"
+                    className={cn(
+                      'font-mono text-xl tracking-[0.28em]',
+                      active === link.href.slice(1) ? 'text-accent' : 'text-fg',
+                    )}
+                  >
+                    {link.label}
+                  </Link>
+                </motion.div>
               ))}
               <motion.div
                 initial={{ opacity: 0 }}

@@ -323,3 +323,84 @@ body {
     color: black;
   }
 }
+
+/* ── Resume print layout — target: 2 × A4 pages ───────────── */
+@media print {
+  @page {
+    size: A4;
+    margin: 9mm 8mm;
+  }
+
+  html,
+  body {
+    background: #fff !important;
+    overflow: visible !important;
+  }
+
+  .resume-doc {
+    padding: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* Override screen utility sizes so the CV matches the reference density */
+  .resume-doc h1 {
+    font-size: 19px !important;
+    margin-top: 0 !important;
+  }
+
+  .resume-doc li,
+  .resume-doc p,
+  .resume-doc dd {
+    font-size: 9.5px !important;
+    line-height: 1.32 !important;
+  }
+
+  .resume-doc .text-sm {
+    font-size: 10.8px !important;
+  }
+
+  .resume-doc .r-title {
+    font-size: 8.8px !important;
+  }
+
+  .resume-doc .font-mono {
+    font-size: 8.4px !important;
+  }
+
+  .resume-doc ul,
+  .resume-doc ol {
+    margin-top: 2px !important;
+  }
+
+  .resume-sec {
+    margin-top: 8px !important;
+  }
+
+  .resume-item {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  /* Match the reference CV pagination: Projects starts page 2 */
+  .resume-projects {
+    break-before: page;
+    page-break-before: always;
+  }
+
+  ul {
+    margin-top: 2px !important;
+  }
+}
+
+/* Hide site chrome when printing */
+@media print {
+  body > header,
+  body > footer,
+  .no-print,
+  .pointer-events-none.fixed {
+    display: none !important;
+  }
+}

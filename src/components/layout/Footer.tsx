@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { Github, Linkedin, Mail, FileText } from 'lucide-react'
 import { SITE } from '@/lib/constants'
 
@@ -19,18 +20,30 @@ export function Footer() {
           </p>
         </div>
         <nav aria-label="Footer" className="flex flex-wrap gap-x-7 gap-y-3">
-          {LINKS.map(({ label, href, icon: Icon }) => (
-            <a
-              key={label}
-              href={href}
-              data-cursor="link"
-              {...(href.startsWith('http') ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
-              className="flex items-center gap-1.5 font-mono text-[10px] tracking-[0.18em] text-muted transition-colors hover:text-accent"
-            >
-              <Icon size={12} />
-              {label.toUpperCase()}
-            </a>
-          ))}
+          {LINKS.map(({ label, href, icon: Icon }) =>
+            href.startsWith('/') ? (
+              <Link
+                key={label}
+                href={href}
+                data-cursor="link"
+                className="flex items-center gap-1.5 font-mono text-[10px] tracking-[0.18em] text-muted transition-colors hover:text-accent"
+              >
+                <Icon size={12} />
+                {label.toUpperCase()}
+              </Link>
+            ) : (
+              <a
+                key={label}
+                href={href}
+                data-cursor="link"
+                {...(href.startsWith('http') ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                className="flex items-center gap-1.5 font-mono text-[10px] tracking-[0.18em] text-muted transition-colors hover:text-accent"
+              >
+                <Icon size={12} />
+                {label.toUpperCase()}
+              </a>
+            ),
+          )}
         </nav>
       </div>
       <div className="border-t border-line">

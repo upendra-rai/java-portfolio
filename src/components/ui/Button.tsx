@@ -1,6 +1,7 @@
 'use client'
 
 import { forwardRef, useRef, type ReactNode } from 'react'
+import Link from 'next/link'
 import { motion, useMotionValue, useSpring } from 'framer-motion'
 import { cn } from '@/lib/utils'
 
@@ -81,10 +82,16 @@ export function LinkButton({
   className,
   children,
   magnetic = true,
+  href,
   ...rest
 }: LinkButtonProps) {
-  const link = (
-    <a className={cn(base, variants[variant], className)} {...rest}>
+  const isInternal = typeof href === 'string' && href.startsWith('/')
+  const link = isInternal ? (
+    <Link href={href} className={cn(base, variants[variant], className)} {...rest}>
+      {children}
+    </Link>
+  ) : (
+    <a href={href} className={cn(base, variants[variant], className)} {...rest}>
       {children}
     </a>
   )

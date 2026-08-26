@@ -1,5 +1,6 @@
 'use client'
 
+import Link from 'next/link'
 import { ArrowUpRight, Github } from 'lucide-react'
 import type { Project } from '@/types/project'
 import { PROJECTS } from '@/data/projects'
@@ -81,7 +82,7 @@ function ProjectCard({ project, large }: { project: Project; large?: boolean }) 
         </div>
 
         <div className={cn('mt-7 flex items-center gap-4', large ? 'lg:mt-0 lg:flex-col lg:items-stretch' : '')}>
-          <a
+          <Link
             href={`/projects/${project.slug}`}
             data-cursor="link"
             className="inline-flex items-center gap-2 border border-line-strong px-5 py-3 font-mono text-[10px] tracking-[0.18em] transition-colors duration-300 hover:border-accent hover:text-accent rounded-sm"
@@ -89,7 +90,7 @@ function ProjectCard({ project, large }: { project: Project; large?: boolean }) 
           >
             CASE STUDY
             <ArrowUpRight size={13} />
-          </a>
+          </Link>
           {project.links?.map((link) => (
             <a
               key={link.url}
