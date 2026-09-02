@@ -1,5 +1,5 @@
 export const ABOUT_PARAGRAPHS = [
-  'I am a Java software engineer who specializes in the backend — the part of the system users never see but always feel. My work centers on Spring Boot services, well-modeled relational databases, and APIs that stay correct when traffic spikes or dependencies fail.',
+  'I am a Java software engineer with 5+ experience who specializes in the backend — the part of the system users never see but always feel. My work centers on Spring Boot services, well-modeled relational databases, and APIs that stay correct when traffic spikes or dependencies fail.',
   'I care about distributed systems fundamentals: clear transaction boundaries, idempotent operations, honest retries and observability that makes production debuggable. Payment infrastructure taught me that correctness is a feature — every edge case eventually happens.',
   'From API design and database modeling to deployment pipelines and monitoring, I engineer the full path from idea to reliable production system.',
 ] as const
@@ -31,7 +31,7 @@ export const RESUME = {
     location: 'Bangalore, India',
   },
   summary:
-    'Highly skilled Developer with 4+ years of hands-on experience in designing, developing and deploying robust, scalable applications using Java, Spring Boot and Hibernate. Adept at building high-performance RESTful APIs and seamlessly integrating backend systems with relational databases such as MySQL. Proficient in version control and collaborative development using Git and GitHub. Passionate about writing clean, maintainable code and solving complex technical challenges. Strong team player with a proven track record of delivering high-quality solutions on time. Eager to contribute to innovative projects and continuously grow as a developer in a dynamic environment.',
+    'Highly skilled Developer with 5+ years of hands-on experience in designing, developing and deploying robust, scalable applications using Java, Spring Boot and Hibernate. Adept at building high-performance RESTful APIs and seamlessly integrating backend systems with relational databases such as MySQL. Proficient in version control and collaborative development using Git and GitHub. Passionate about writing clean, maintainable code and solving complex technical challenges. Strong team player with a proven track record of delivering high-quality solutions on time. Eager to contribute to innovative projects and continuously grow as a developer in a dynamic environment.',
   skills: {
     'Core Java':
       'Java, Java 8, Object-Oriented Programming, Collections, Multithreading, JUnit, SDLC, Distributed Systems, Hexagonal Design Pattern',
